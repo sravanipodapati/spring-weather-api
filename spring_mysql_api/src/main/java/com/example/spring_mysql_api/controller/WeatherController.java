@@ -1,7 +1,10 @@
 package com.example.spring_mysql_api.controller;
 
 import com.example.spring_mysql_api.model.Weather;
+import com.example.spring_mysql_api.response.ResponseHandler;
 import com.example.spring_mysql_api.service.WeatherService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,9 +19,9 @@ public class WeatherController
     }
     // Read specific weather detail ById from database
     @GetMapping("{countryId}")
-     public Weather getWeatherDetails(@PathVariable("countryId") String countryId)
+     public ResponseEntity<Object> getWeatherDetails(@PathVariable("countryId") String countryId)
     {
-        return weatherService.getWeather(countryId);
+        return ResponseHandler.responseBuilder("Requested weather details are given here", HttpStatus.OK, weatherService.getWeather(countryId));
     }
     //Read all weather details from database
     @GetMapping()
