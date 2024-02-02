@@ -6,20 +6,6 @@ This project is a Spring Boot application that provides weather
 information for various countries. It uses MySQL for data storage and
 follows a RESTful API architecture.
 
-## Table of Contents
-
-    - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Running the Application](#running-the-application)
-    - [API Endpoints](#api-endpoints)
-    - [Welcome](#welcome)
-    - [Weather Information](#weather-information)
-    - [Cities and Countries](#cities-and-countries)
-    - [Weather by City ID](#weather-by-city-id)
-    - [Data Storage](#data-storage)
-    - [Build and Deployment](#build-and-deployment)
-    - [Docker Configuration](#docker-configuration)
-
 ## Getting Started
 
 ### Prerequisites
@@ -82,6 +68,13 @@ so, when the request was sent the response will be in generic way like below
 - In MySQL workbench my schema name is "weather".
 - Created a table with name Weather_List which showa all stored weather details
 
+# Unit tests
+- Used Junit and Mockito to create and run test driven unit tests.
+# BDD
+- Implemented BDD by creating feature file with one scenario
+- wrote step definitions and run them using a runner class
+- pass the scenario successfully.
+
 ## Docker Configuration
 
 To run the application using Docker:
@@ -99,4 +92,6 @@ To run the application using Docker:
     
     - Weather by City ID
       http://localhost:8080/weather/1
+## Continuous Integrations
+ Did continuous integration with workflow and it was build successfully.
 
