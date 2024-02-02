@@ -1,0 +1,57 @@
+name: Java CI with JUnit, BDD, and Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_ROOT_PASSWORD: "Sr@vani9394"
+          MYSQL_DATABASE: "weather"
+          MYSQL_USER: "root"
+          MYSQL_PASSWORD: "Sr@vani9394"
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s
+                 --health-timeout=5s --health-retries=3
+
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v2.5.0
+
+  - name: Set up JDK
+    uses: actions/setup-java@v2
+    with:
+      distribution: 'adopt'
+      java-version: '17'
+
+  - name: Build with Maven
+    run: mvn -B package --file pom.xml
+
+  - name: Run JUnit tests
+    run: mvn test
+
+  - name: Run BDD tests
+    run: mvn verify -Pbdd
+
+  - name: Build Docker image
+    run: |
+      docker build -t your-docker-image-name .
+
+  - name: Push Docker image to Docker Hub
+    env:
+      DOCKERHUB_USERNAME: your-dockerhub-username
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+    run: |
+      echo "$DOCKERHUB_PASSWORD" | docker login -u
+            $DOCKERHUB_USERNAME --password-stdin
+            docker tag your-docker-image-name
+            $DOCKERHUB_USERNAME/your-docker-image-name
+            docker push $DOCKERHUB_USERNAME/your-docker-image-name

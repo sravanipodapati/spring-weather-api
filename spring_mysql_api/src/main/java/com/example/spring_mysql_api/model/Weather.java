@@ -1,7 +1,6 @@
 package com.example.spring_mysql_api.model;
 
 import jakarta.persistence.*;
-
 @Entity
 @Table(name="weather_list")
 public class Weather

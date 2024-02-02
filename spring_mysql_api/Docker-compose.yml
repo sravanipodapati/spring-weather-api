@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+
+    spring-app:
+      build: .
+      ports:
+        - "8080:8080"
+      depends_on:
+        - mysqldb
+      environment:
+        SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/weather
+    mysqldb:
+      image: mysql:8.0
+      restart: always
+      ports:
+        - 3307:3306
+      environment:
+        MYSQL_ROOT_PASSWORD: Sr@vani9394
+        MYSQL_DATABASE: weather

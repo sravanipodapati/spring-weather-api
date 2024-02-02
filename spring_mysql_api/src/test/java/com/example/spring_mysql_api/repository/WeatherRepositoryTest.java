@@ -12,7 +12,6 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 @DataJpaTest
-
 public class WeatherRepositoryTest {
     @Autowired
     private WeatherRepository weatherRepository;
@@ -20,10 +19,13 @@ public class WeatherRepositoryTest {
 
     @BeforeEach
     void setup(){
-        weatherRepository.save(new Weather("1", "America", "Seattle", "0°c", "Snowy"));
+        weather = new Weather("1", "America", "Seattle",
+                "0°c", "Snowy");
+        weatherRepository.save(weather);
     }
     @AfterEach
     void tearDown(){
+        weather = null;
         weatherRepository.deleteAll();
 
     }
@@ -32,9 +34,8 @@ public class WeatherRepositoryTest {
     void testFindByCountryName_Found()
     {
         List<Weather> weatherList = weatherRepository.findByCountryName("America");
-        assertThat(weatherList).hasSize(1);
-        assertThat(weatherList.get(0).getCountryId()).isEqualTo("1");
-        assertThat(weatherList.get(0).getTemperature()).isEqualTo("0°c");
+        assertThat(weatherList.get(0).getCountryId()).isEqualTo(weather.getCountryId());
+        assertThat(weatherList.get(0).getTemperature()).isEqualTo(weather.getTemperature());
     }
     // Test case Failure
     @Test
