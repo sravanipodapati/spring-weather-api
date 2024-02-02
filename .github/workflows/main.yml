@@ -34,10 +34,10 @@ jobs:
         run: mvn -B package --file spring_mysql_api/pom.xml
 
       - name: Run JUnit tests
-        run: mvn test
+        run: mvn test --file spring_mysql_api/pom.xml
 
       - name: Run BDD tests
-        run: mvn verify -Pbdd
+        run: mvn verify -Pbdd --file spring_mysql_api/pom.xml
 
       - name: Build Docker image
         run: |
