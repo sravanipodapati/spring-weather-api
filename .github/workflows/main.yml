@@ -41,7 +41,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t sravanipodapati/spring_mysql_api-spring-app .
+          docker build -t sravanipodapati/spring_mysql_api-spring-app . -f spring_mysql_api/Dockerfile
 
       - name: Push Docker image to Docker Hub
         env:
