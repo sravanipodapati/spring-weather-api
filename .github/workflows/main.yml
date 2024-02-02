@@ -49,10 +49,5 @@ jobs:
          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
         run: |
          echo "$DOCKERHUB_PASSWORD" | docker login -u $DOCKERHUB_USERNAME --password-stdin
-         docker tag sravanipodapati/spring_mysql_api-spring-app
-         $DOCKERHUB_USERNAME/spring_mysql_api-spring-app
+         docker tag sravanipodapati/spring_mysql_api-spring-app $DOCKERHUB_USERNAME/spring_mysql_api-spring-app
          docker push $DOCKERHUB_USERNAME/spring_mysql_api-spring-app
-
-
-  
-
