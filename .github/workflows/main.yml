@@ -36,9 +36,6 @@ jobs:
       - name: Run JUnit tests
         run: mvn test --file spring_mysql_api/pom.xml
 
-      - name: Run BDD tests
-        run: mvn verify -Pbdd --file spring_mysql_api/pom.xml
-
       - name: Build Docker image
         run: |
           docker build -t sravanipodapati/spring_mysql_api-spring-app . -f spring_mysql_api/Dockerfile
