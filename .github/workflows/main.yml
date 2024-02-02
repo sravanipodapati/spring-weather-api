@@ -37,7 +37,7 @@ jobs:
         run: mvn test --file spring_mysql_api/pom.xml
 
       - name: Run BDD tests
-        run: mvn verify -Pbdd --file spring_mysql_api/pom.xml
+        run: mvn verify -PcucumberGlue --file spring_mysql_api/pom.xml
 
       - name: Build Docker image
         run: |
