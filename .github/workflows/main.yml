@@ -31,7 +31,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn -B package --file spring_mysql_api/pom.xml
 
       - name: Run JUnit tests
         run: mvn test
