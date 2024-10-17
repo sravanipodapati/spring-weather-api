@@ -1,6 +1,0 @@
-com\example\spring_mysql_api\controller\WeatherControllerTest.class
-com\example\spring_mysql_api\cucumberGlue\CucumberSpringIntegrationTest.class
-com\example\spring_mysql_api\cucumberGlue\CucumberStepDefinitions.class
-com\example\spring_mysql_api\repository\WeatherRepositoryTest.class
-com\example\spring_mysql_api\service\impl\WeatherServiceImplTest.class
-com\example\spring_mysql_api\SpringMysqlApiApplicationTests.class
