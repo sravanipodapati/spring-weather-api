@@ -44,9 +44,10 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         env:
-         DOCKERHUB_USERNAME: sravanipodapati
-         DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+         DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
         run: |
-         echo "$DOCKERHUB_PASSWORD" | docker login -u $DOCKERHUB_USERNAME --password-stdin
+         # Non-interactive Docker login using token
+         docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_TOKEN"
          docker tag sravanipodapati/spring_mysql_api-spring-app $DOCKERHUB_USERNAME/spring_mysql_api-spring-app
          docker push $DOCKERHUB_USERNAME/spring_mysql_api-spring-app
