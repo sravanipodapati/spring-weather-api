@@ -2,7 +2,6 @@ package com.example.spring_mysql_api.service;
 
 import com.example.spring_mysql_api.model.Weather;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 @Service
 public interface WeatherService {

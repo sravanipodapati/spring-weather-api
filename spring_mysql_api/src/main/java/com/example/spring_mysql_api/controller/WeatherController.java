@@ -6,7 +6,6 @@ import com.example.spring_mysql_api.service.WeatherService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -42,7 +41,7 @@ public class WeatherController
         return "Weather updated successfully";
     }
     @DeleteMapping("{countryId}")
-    public String deleteWeatherDetails(@PathVariable("countryId")String countryId)
+    public String deleteWeatherDetails(@PathVariable("countryId") String countryId)
     {
         weatherService.deleteWeather(countryId);
         return "Weather deleted successfully";

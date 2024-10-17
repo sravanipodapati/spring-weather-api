@@ -5,7 +5,6 @@ import com.example.spring_mysql_api.model.Weather;
 import com.example.spring_mysql_api.repository.WeatherRepository;
 import com.example.spring_mysql_api.service.WeatherService;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 @Service
 public class WeatherServiceImpl implements WeatherService{
@@ -20,7 +19,7 @@ public class WeatherServiceImpl implements WeatherService{
     }
 
     @Override
-    public String updateWeather(Weather weather) {
+    public String updateWeather( Weather weather) {
         weatherRepository.save(weather);
         return "Success";
     }
